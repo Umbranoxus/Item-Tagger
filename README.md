@@ -18,3 +18,5 @@ Level 3 "Definitely" an exact match, the algorithm will continue looping through
 This algorithm is completely scalable based on how populated the database is, the algorithm doesn't need to be tweaked. If the database has loads of information the algorithm has potential to be extremely accurate
 
 The function that determines this result can also be implemented into a batch search of multiple items, but this is an MVP, so didn't want to make it to fancy.
+
+Here is a small video showing off the algorithm https://youtu.be/BlL-a5DTF_c
