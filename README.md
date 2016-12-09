@@ -13,7 +13,7 @@ Level 1 "We're not sure, maybe..." gives out the first find in the query, not ve
 
 Level 2 "Most Likely..." is if the algorithm finds a keyword that contains the item queried
 
-Level 3 "Definitely" an exact match, the algorithm will continue looping through ever result in order to hopefully find a Level 3 answer, if not go to Level 2, if Level 2 isn't found, Level 1
+Level 3 "Definitely" an exact match, the algorithm will continue looping through every result in order to hopefully find a Level 3 answer, if not go to Level 2, if Level 2 isn't found, Level 1
 
 This algorithm is completely scalable based on how populated the database is, the algorithm doesn't need to be tweaked. If the database has loads of information the algorithm has potential to be extremely accurate
 
