@@ -1,6 +1,16 @@
 <?php
 require 'public_db.php';
 
+function queryList($handler, $itemList, $store)
+{
+  $list = preg_split('/\r\n|[\r\n]/', $itemList);
+  $results = array();
+  foreach ($list as $value) {
+   array_push($results,  queryItem($handler, $value, $store));
+  }
+  return $results;
+}
+
 function queryItem($handler, $item, $store) {
   $not_found = 'Item not found';
   $item = strtolower($item);
@@ -19,15 +29,16 @@ function queryItem($handler, $item, $store) {
 	{
 		if ($firstResult = "")
 		{
-			$firstResult = "We're not to sure, maybe " . $r->location . ' at ' . $r->store; //shot in the dark, can be improved upon
+			$firstResult = $r->lat .'|'.$r->lon.'|'.$item.'|'. $r->location.'|'; //shot in the dark, can be improved upon
 		}
 		if ($item == $keyword)
 		{
-			return 'Definitely ' . $r->location . ' at ' . $r->store; //exact result
+			return $r->lat.'|'.$r->lon.'|'.$item.'|'.$r->location.'|'; //exact result
+
 		}
 		if (strpos($item, $keyword) !== false)
 		{
-			$likely = 'Most likely ' . $r->location . ' at ' . $r->store; //very possible result
+			$likely =$r->lat.'|'.$r->lon.'|'.$item.'|'. $r->location.'|'; //very possible result
 		}
 		//Keep looping to hopefully find an exact result
 	}
